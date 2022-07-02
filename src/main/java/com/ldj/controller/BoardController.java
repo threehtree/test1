@@ -7,6 +7,7 @@ import lombok.RequiredArgsConstructor;
 import lombok.extern.log4j.Log4j2;
 import org.springframework.http.HttpEntity;
 import org.springframework.stereotype.Controller;
+import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
@@ -33,9 +34,9 @@ public class BoardController {
 
     @GetMapping("/list")
     @ResponseBody
-    public List<Board> listGet() {
+    public void listGet(Model model) {
         List<Board> boards = boardService.selectList();
-        return boards;
+        model.addAttribute("dtoList", boards);
     }
 
 }
