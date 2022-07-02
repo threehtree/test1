@@ -5,24 +5,26 @@
        xmlns:mybatis-Spring="http://mybatis.org/schema/mybatis-spring"
        xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd http://www.springframework.org/schema/context https://www.springframework.org/schema/context/spring-context.xsd http://mybatis.org/schema/mybatis-spring http://mybatis.org/schema/mybatis-spring.xsd">
 
-    <context:component-scan base-package="com.ldj.sample"></context:component-scan>
+    <context:component-scan base-package="com.ldj.sample"/>
+    <context:component-scan base-package="com.ldj.service"/>
 
     <bean id="hikariConfig" class="com.zaxxer.hikari.HikariConfig">
-        <property name="driverClassName" value="org.mariadb.jdbc.Driver"></property>
+        <property name="driverClassName" value="org.mariadb.jdbc.Driver"/>
         <property name="jdbcUrl"
-                  value="jdbc:mariadb://127.0.0.1:3306/mydb"></property>
-        <property name="username" value="mydbuser"></property>
-        <property name="password" value="mydbuser"></property>
+                  value="jdbc:mariadb://127.0.0.1:3306/mydb"/>
+        <property name="username" value="mydbuser"/>
+        <property name="password" value="mydbuser"/>
     </bean>
+
     <!-- HikariCP configuration -->
     <bean id="dataSource" class="com.zaxxer.hikari.HikariDataSource"
           destroy-method="close">
-        <constructor-arg ref="hikariConfig" />
+        <constructor-arg ref="hikariConfig"/>
     </bean>
 
     <bean id="sqlSessionFactory" class="org.mybatis.spring.SqlSessionFactoryBean">
-        <property name="dataSource" ref="dataSource"></property>
-        <property name="mapperLocations" value="classpath:/mappers/**/*.xml"></property>
+        <property name="dataSource" ref="dataSource"/>
+        <property name="mapperLocations" value="classpath:/mappers/**/*.xml"/>
     </bean>
-    <mybatis-Spring:scan base-package="com.ldj.mapper"></mybatis-Spring:scan>
+    <mybatis-Spring:scan base-package="com.ldj.mapper"/>
 </beans>
