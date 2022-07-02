@@ -33,10 +33,16 @@ public class BoardController {
     }
 
     @GetMapping("/list")
-    @ResponseBody
-    public void listGet(Model model) {
-        List<Board> boards = boardService.selectList();
-        model.addAttribute("dtoList", boards);
-    }
+    public void list() {
 
+    }
+    @GetMapping("/getBoardList")
+    public HttpEntity<List<Board>> listGet(Model model) {
+        List<Board> boards = boardService.selectList();
+        HttpEntity<List<Board>> responseHttpEntity = new HttpEntity<>(boards);
+        log.info("!@");
+        log.info(responseHttpEntity);
+        log.info("!@");
+        return responseHttpEntity;
+    }
 }
