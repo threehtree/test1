@@ -45,4 +45,16 @@ public class BoardController {
         log.info("!@");
         return responseHttpEntity;
     }
+    @DeleteMapping("/delete/{bno}")
+    public HttpEntity<Response> delete(@PathVariable("bno") Integer bno){
+        boolean result = boardService.delete(bno);
+        HttpEntity<Response> responseHttpEntity = new HttpEntity<>(new Response(result));
+        return responseHttpEntity;
+    }
+    @GetMapping("/read/{bno}")
+    public String read(@PathVariable("bno") Integer bno,Model model){
+        Board board = boardService.selectOne(bno);
+        model.addAttribute("dtoOne",board);
+        return "/board/read";
+    }
 }

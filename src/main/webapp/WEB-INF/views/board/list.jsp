@@ -10,12 +10,13 @@
 <body>
 <%--${dtoList}--%>
 <%--    <button onclick="location.href='http://localhost:8080/board/modify';">수정하기 </button>--%>
-<button  onclick="delBtn()">삭제하기 </button>
-<button onclick="listBoard()">목록 </button>
+<%--<button  onclick="delBtn()">삭제하기 </button>--%>
+<%--<button onclick="listBoard()">목록 </button>--%>
 <div class="jo">
 
-    <table>
+    <table class="readOne">
         <thead>
+            <th><div>bno</div></th>
             <th><div>title</div></th>
             <th><div>content</div></th>
         </thead>
@@ -59,8 +60,9 @@
 
                 respones.data.forEach( (ele) =>{
                 // document.querySelector(".jo").innerHTML = JSON.stringify[idx]
-                test += `<tr><th><div>\${ele.title}</div></th>
-                         <th><div>\${ele.content}</div></th></tr>`
+                test += `<tr><th><div data-bno = \${ele.bno} class="list-content">\${ele.bno}</div></th>
+                            <th><div data-bno = \${ele.bno} class="list-content">\${ele.title}</div></th>
+                         <th><div data-bno = \${ele.bno} class="list-content">\${ele.content}</div></th></tr>`
             })
             console.log(test)
             document.querySelector(".tb").innerHTML = test
@@ -68,28 +70,20 @@
             console.error(error);
         })
     }
-    function delBtn(){
-        <%--//경고창을 띄울러면 modal을 써야하는데 일단 alert--%>
-        <%--alert(bno + "글이 삭제 됩니다 ")--%>
-        <%--axios({--%>
-        <%--    url: 'http://localhost:8080/board/${bno}',--%>
-        <%--    method: 'delete',--%>
-        <%--    data: {--%>
-        <%--        bno: this.bno--%>
-        <%--    }--%>
-        <%--}).then(function (response){--%>
-        <%--    console.log(response)--%>
-        <%--    if(respons.data.result){--%>
-        <%--        console.log("삭제되었습니다")--%>
-        <%--    }else {--%>
-        <%--        console.log("에러가 발생했습니다 ")--%>
-        <%--    }--%>
 
-        <%--}).catch(function (error){--%>
-        <%--    console.error(error);--%>
-        <%--})--%>
+    const readOne = document.querySelector(".readOne")
 
-    }
+    readOne.addEventListener('click', (e) =>{
+        if(e.target.getAttribute("class").indexOf('list-content') < 0 ){
+            return
+        }
+        const bno = e.target.getAttribute("data-bno")
+        console.log(bno)
+        console.log( `/board/read/\${bno}`)
+        window.location.href = `/board/read/\${bno}`
+    },false)
+
+
 
 </script>
 </body>

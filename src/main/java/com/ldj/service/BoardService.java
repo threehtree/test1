@@ -19,4 +19,9 @@ public class BoardService {
     public List<Board>selectList(){
         return boardMapper.selectList();
     }
+    public Board selectOne(Integer bno){ return boardMapper.selectOne(bno);}
+
+    public boolean delete(Integer bno){
+        return boardMapper.delete(bno) == 1;
+    }
 }
