@@ -12,7 +12,7 @@ public interface BoardMapper {
     Board selectOne(Integer bno);
 
     Integer delete(Integer bno);
-    void update(Board board);
+    Integer update(Board board);
 
 
 

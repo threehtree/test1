@@ -36,6 +36,8 @@
 <%--    <span>${list.title}</span>--%>
 <%--</c:forEach>--%>
 </div>
+<button type="button" onclick="addBoard()">등록</button>
+
 <%--    <script src="/resources/static/js/list.js"></script>--%>
 <script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>
 
@@ -80,6 +82,10 @@
         console.log( `/board/read/\${bno}`)
         window.location.href = `/board/read/\${bno}`
     },false)
+
+    function addBoard(){
+        window.location.href = "/board/register"
+    }
 
 
 

@@ -13,6 +13,7 @@ public interface BoardService {
     BoardDTO selectOne(Integer bno);
 
     boolean delete(Integer bno);
+    boolean update(BoardDTO boardDTO);
 
 
 }

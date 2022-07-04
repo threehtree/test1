@@ -17,5 +17,6 @@
 <button onclick="registerBoard()">작성하기</button>
 <button onclick="cancelRegister()">취소하기</button>
 
+
 </body>
 </html>
