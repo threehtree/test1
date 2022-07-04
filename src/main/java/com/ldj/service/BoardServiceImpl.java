@@ -16,6 +16,7 @@ import java.util.List;
 @RequiredArgsConstructor
 @Log4j2
 public class BoardServiceImpl implements BoardService {
+
     private final BoardMapper boardMapper;
     private final ModelMapper modelMapper;
 
@@ -36,5 +37,11 @@ public class BoardServiceImpl implements BoardService {
 
     public boolean delete(Integer bno){
         return boardMapper.delete(bno) == 1;
+    }
+
+    @Override
+    public boolean update(BoardDTO boardDTO) {
+        Board board = modelMapper.map(boardDTO, Board.class);
+        return   boardMapper.update(board) == 1;
     }
 }

@@ -59,4 +59,18 @@ public class BoardController {
         model.addAttribute("dtoOne",boardDTO);
         return "/board/read";
     }
+    @GetMapping("/modify/{bno}")
+    public String modifyGet(@PathVariable("bno")Integer bno, Model model){
+        BoardDTO boardDTO = boardService.selectOne(bno);
+        model.addAttribute("dtoOne",boardDTO);
+        return "/board/modify";
+    }
+    @PutMapping("/putBoard/{bno}")
+
+    public HttpEntity<Response> update(@PathVariable("bno") Integer bno, @RequestBody BoardDTO boardDTO){
+        boolean result = boardService.update(boardDTO);
+        HttpEntity<Response> responseHttpEntity = new HttpEntity<>(new Response(result));
+        log.info(responseHttpEntity);
+        return responseHttpEntity;
+    }
 }
