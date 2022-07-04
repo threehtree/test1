@@ -21,15 +21,18 @@
         const title = document.querySelector(".title").value
         const content = document.querySelector(".content").value
         console.log(title,"====",content)
+        console.log(`http://localhost:8080/board/putBoard/\${bno}`)
             await axios({
                 headers: {'contentType':'application/json'},
             url: `http://localhost:8080/board/putBoard/\${bno}`,
             method: 'put',
-            date: {
+            data: {
                 title: title,
                 content: content
             }
-        })
+        }).then((response)=>{
+                console.log(response)
+            })
     }
 </script>
 

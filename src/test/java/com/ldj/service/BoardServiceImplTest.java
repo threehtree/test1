@@ -1,6 +1,7 @@
 package com.ldj.service;
 
 import com.ldj.domain.Board;
+import com.ldj.dto.BoardDTO;
 import lombok.extern.log4j.Log4j2;
 import org.junit.jupiter.api.Test;
 import org.junit.jupiter.api.extension.ExtendWith;
@@ -16,7 +17,7 @@ import static org.junit.jupiter.api.Assertions.assertTrue;
 
 public class BoardServiceImplTest {
     @Autowired
-    private BoardServiceImpl boardServiceImpl;
+    private BoardService boardService;
 
     @Test
     void insertTest() {
@@ -32,6 +33,12 @@ public class BoardServiceImplTest {
 //    @Test
 //    void selectListTests(){
 //        boardServiceImpl.selectList();
+//
+//    }
+//    @Test
+//    void updateTest(){
+//        BoardDTO boardDTO = BoardDTO.builder().title("123title").content("123content").bno(22).build();
+//        boardService.update(boardDTO);
 //
 //    }
 }

@@ -25,7 +25,7 @@ public class BoardMapperTests {
         Board board = Board.builder()
                 .title("제목")
                 .content("내용")
-                .writer("작성자")
+
                 .build();
 
         boardMapper.insert(board);

@@ -54,9 +54,9 @@ public class BoardController {
         return responseHttpEntity;
     }
     @GetMapping("/read/{bno}")
-    public String read(@PathVariable("bno") Integer bno,Model model){
-        BoardDTO boardDTO = boardService.selectOne(bno);
-        model.addAttribute("dtoOne",boardDTO);
+    public String read(@PathVariable("bno") Integer bno,Model model,BoardDTO boardDTO){
+        BoardDTO boardDTO1 = boardService.selectOne(bno);
+        model.addAttribute("dtoOne",boardDTO1);
         return "/board/read";
     }
     @GetMapping("/modify/{bno}")
@@ -68,6 +68,7 @@ public class BoardController {
     @PutMapping("/putBoard/{bno}")
 
     public HttpEntity<Response> update(@PathVariable("bno") Integer bno, @RequestBody BoardDTO boardDTO){
+        boardDTO.setBno(bno);
         boolean result = boardService.update(boardDTO);
         HttpEntity<Response> responseHttpEntity = new HttpEntity<>(new Response(result));
         log.info(responseHttpEntity);
