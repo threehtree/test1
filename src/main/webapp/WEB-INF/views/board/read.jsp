@@ -1,10 +1,4 @@
-<%--
-  Created by IntelliJ IDEA.
-  User: ehdwn
-  Date: 2022-07-03
-  Time: 오전 11:53
-  To change this template use File | Settings | File Templates.
---%>
+
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
 <html>
 <head>
@@ -15,25 +9,28 @@
     ${dtoOne}
     <input type="text" value="${dtoOne.title}" readonly>
     <input type="text" value="${dtoOne.content}" readonly>
-    <button type="button">수정하기</button>
+    <button onclick="modifyBtn()" type="button">수정하기</button>
     <button onclick="delBtn()" type="button">삭제하기</button>
+
   <script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>
 
   <script>
     const bno = ${dtoOne.bno}
+
     function delBtn(){
         //경고창을 띄울러면 modal을 써야하는데 일단 alert
         alert(bno + "글이 삭제 됩니다 ")
         axios({
-            url: 'http://localhost:8080/board/${bno}',
+            url: 'http://localhost:8080/board/delete/${bno}',
             method: 'delete',
             data: {
                 bno: this.bno
             }
-        }).then(function (response){
-            console.log(response)
-            if(respons.data.result){
+        }).then(function (request){
+            console.log(request)
+            if(request.status){
                 console.log("삭제되었습니다")
+              window.location.href = "/board/list"
             }else {
                 console.log("에러가 발생했습니다 ")
             }
@@ -42,6 +39,9 @@
             console.error(error);
         })
 
+    }
+    function modifyBtn(){
+      window.location.href = `/board/modify/${bno}`
     }
 </script>
 
