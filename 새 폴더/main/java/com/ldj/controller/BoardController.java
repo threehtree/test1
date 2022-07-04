@@ -27,7 +27,7 @@ public class BoardController {
 
     }
 
-    @PostMapping("register")
+    @PostMapping("/register")
     public HttpEntity<Response> register(@RequestBody BoardDTO boardDTO){
         boolean result = boardService.insert(boardDTO);
         HttpEntity<Response> responseHttpEntity = new HttpEntity<>(new Response(result));
@@ -53,6 +53,12 @@ public class BoardController {
         HttpEntity<Response> responseHttpEntity = new HttpEntity<>(new Response(result));
         return responseHttpEntity;
     }
+    @GetMapping("/delete/{bno}")
+    public String delete(){
+        return "redirect:/board/list";
+    }
+
+
     @GetMapping("/read/{bno}")
     public String read(@PathVariable("bno") Integer bno,Model model){
         BoardDTO boardDTO = boardService.selectOne(bno);
