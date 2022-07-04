@@ -1,10 +1,4 @@
-<%--
-  Created by IntelliJ IDEA.
-  User: ehdwn
-  Date: 2022-07-02
-  Time: 오후 11:20
-  To change this template use File | Settings | File Templates.
---%>
+
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
 <html>
 <head>
@@ -12,5 +6,7 @@
 </head>
 <body>
     <h2>modify</h2>
+    <input type="text" value="" readonly>
+    <input type="text" value="" readonly>
 </body>
 </html>

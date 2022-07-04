@@ -1,27 +1,18 @@
 package com.ldj.service;
 
 import com.ldj.domain.Board;
-import com.ldj.mapper.BoardMapper;
-import lombok.RequiredArgsConstructor;
-import org.springframework.stereotype.Service;
+import com.ldj.dto.BoardDTO;
 
 import java.util.List;
 
-@Service
-@RequiredArgsConstructor
-public class BoardService {
-    private final BoardMapper boardMapper;
+public interface BoardService {
 
-    public boolean insert(Board board) {
-        return boardMapper.insert(board) == 1;
-    }
+    boolean insert(BoardDTO boardDTO);
 
-    public List<Board>selectList(){
-        return boardMapper.selectList();
-    }
-    public Board selectOne(Integer bno){ return boardMapper.selectOne(bno);}
+    List<Board> selectList();
+    BoardDTO selectOne(Integer bno);
 
-    public boolean delete(Integer bno){
-        return boardMapper.delete(bno) == 1;
-    }
+    boolean delete(Integer bno);
+
+
 }

@@ -7,6 +7,8 @@
 
     <context:component-scan base-package="com.ldj.sample"/>
     <context:component-scan base-package="com.ldj.service"/>
+    <context:component-scan base-package="com.ldj.config"/>
+
 
     <bean id="hikariConfig" class="com.zaxxer.hikari.HikariConfig">
         <property name="driverClassName" value="org.mariadb.jdbc.Driver"/>

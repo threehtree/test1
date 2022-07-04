@@ -12,7 +12,7 @@
 <%--    <button onclick="location.href='http://localhost:8080/board/modify';">수정하기 </button>--%>
 <%--<button  onclick="delBtn()">삭제하기 </button>--%>
 <%--<button onclick="listBoard()">목록 </button>--%>
-<div class="jo">
+<div class>
 
     <table class="readOne">
         <thead>
@@ -20,7 +20,7 @@
             <th><div>title</div></th>
             <th><div>content</div></th>
         </thead>
-        <tbody class="tb">
+        <tbody class="readOneBody">
 
         </tbody>
         <tfoot>
@@ -46,7 +46,6 @@
     //  ===========================
     async function listBoard(){
 
-        console.log("FFFFFFFFFFFFFFFFFFFFFFFFFFFFF")
         let response ;
         let test;
         await axios({
@@ -54,7 +53,6 @@
             method: 'get'
 
         }).then(function (respones){
-            console.log("DDDDDDDDD")
             console.log(respones.data)
             console.log(respones.data.length)
 
@@ -65,7 +63,7 @@
                          <th><div data-bno = \${ele.bno} class="list-content">\${ele.content}</div></th></tr>`
             })
             console.log(test)
-            document.querySelector(".tb").innerHTML = test
+            document.querySelector(".readOneBody").innerHTML = test
         }).catch(function (error){
             console.error(error);
         })
