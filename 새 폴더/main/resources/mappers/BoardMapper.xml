@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper
+        PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper namespace="com.ldj.mapper.BoardMapper">
+    <insert id="insert" >
+        <selectKey resultType="int" keyProperty="bno" order="AFTER">
+            select last_insert_id()
+        </selectKey>
+         insert into tbl_board(title, content)
+            values (#{title}, #{content})
+    </insert>
+
+    <select id="selectList" resultType="com.ldj.domain.Board">
+        select * from tbl_board
+        order by bno desc
+        limit #{skip}, #{size}
+    </select>
+
+    <select id="selectOne" resultType="com.ldj.domain.Board">
+        select * from tbl_board
+        where bno = #{bno}
+    </select>
+
+    <delete id="delete">
+        delete from tbl_board where bno = #{bno}
+    </delete>
+
+    <update id="update">
+        update table set title=#{title} , content = #{content} , writer= #{writer} where bno = #{bno}
+    </update>
+
+</mapper>
+
