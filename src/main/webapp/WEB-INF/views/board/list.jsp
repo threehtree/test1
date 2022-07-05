@@ -1,7 +1,8 @@
 
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
-<%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>
+<%@ include file="/WEB-INF/includes/listheader.jsp" %>
 
+<div id="layoutSidenav">
 <html>
 <head>
     <title>List</title>
