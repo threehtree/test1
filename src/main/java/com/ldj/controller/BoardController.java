@@ -2,6 +2,8 @@ package com.ldj.controller;
 
 import com.ldj.domain.Board;
 import com.ldj.dto.BoardDTO;
+import com.ldj.dto.ListDTO;
+import com.ldj.dto.ListResponseDTO;
 import com.ldj.dto.Response;
 import com.ldj.service.BoardService;
 import com.ldj.service.BoardServiceImpl;
@@ -39,9 +41,9 @@ public class BoardController {
 
     }
     @GetMapping("/getBoardList")
-    public HttpEntity<List<Board>> listGet(Model model) {
-        List<Board> boards = boardService.selectList();
-        HttpEntity<List<Board>> responseHttpEntity = new HttpEntity<>(boards);
+    public HttpEntity<ListResponseDTO<BoardDTO>> listGet(Model model, ListDTO listDTO) {
+        ListResponseDTO<BoardDTO> boards = boardService.selectList(listDTO);
+        HttpEntity<ListResponseDTO<BoardDTO>> responseHttpEntity = new HttpEntity<>(boards);
         log.info("!@");
         log.info(responseHttpEntity);
         log.info("!@");

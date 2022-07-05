@@ -31,9 +31,9 @@ public class BoardMapperTests {
         boardMapper.insert(board);
         log.info("Bno: "+board);
     }
-    @Test
-    public void testSelectList(){
-        List<Board> boardList = boardMapper.selectList(1,10);
-
-    }
+//    @Test
+//    public void testSelectList(){
+//        List<Board> boardList = boardMapper.selectList(1,10);
+//
+//    }
 }

@@ -1,6 +1,7 @@
 package com.ldj.mapper;
 
 import com.ldj.domain.Board;
+import com.ldj.dto.ListDTO;
 import org.apache.ibatis.annotations.Param;
 
 import java.util.List;
@@ -8,7 +9,8 @@ import java.util.List;
 public interface BoardMapper {
     Integer insert(Board board);
 
-    List<Board> selectList(@Param("skip") int skip, @Param("size") int size);
+    List<Board> selectList(ListDTO listDTO);
+    Integer getTotal();
     Board selectOne(Integer bno);
 
     Integer delete(Integer bno);

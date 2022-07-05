@@ -49,16 +49,17 @@
     async function listBoard(){
 
         let response ;
-        let test;
+        let test = '';
         await axios({
             url: 'http://localhost:8080/board/getBoardList',
             method: 'get'
 
         }).then(function (respones){
             console.log(respones.data)
-            console.log(respones.data.length)
+            console.log(respones.data.dtoList)
+            console.log(respones.data.dtoList.length)
 
-                respones.data.forEach( (ele) =>{
+                respones.data.dtoList.forEach( (ele) =>{
                 // document.querySelector(".jo").innerHTML = JSON.stringify[idx]
                 test += `<tr><th><div data-bno = \${ele.bno} class="list-content">\${ele.bno}</div></th>
                             <th><div data-bno = \${ele.bno} class="list-content">\${ele.title}</div></th>

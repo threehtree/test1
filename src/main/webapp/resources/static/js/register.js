@@ -14,7 +14,7 @@ function registerBoard() {
     }).then(function (response) {
         console.log(response);
         if (response.data.result) {
-             // window.location.href = "/board/list"
+             window.location.href = "/board/list"
 
             console.log("success")
         } else {

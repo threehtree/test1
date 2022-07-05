@@ -31,5 +31,8 @@
         update tbl_board set title=#{title} , content = #{content} where bno = #{bno}
     </update>
 
+    <select id="getTotal" resultType="int">
+        select count(*) from tbl_board;
+    </select>
 </mapper>
 

@@ -17,4 +17,8 @@ public class ListDTO {
     public void setSize(int size) {
         this.size = size <= 10? 10 :size;
     }
+
+    public int getSkip(){return (this.page - 1) * size;
+
+    }
 }

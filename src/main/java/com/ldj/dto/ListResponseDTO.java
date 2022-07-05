@@ -5,13 +5,15 @@ import lombok.Builder;
 import lombok.Data;
 import lombok.NoArgsConstructor;
 
+import java.util.List;
+
 @Data
+@Builder
 @AllArgsConstructor
 @NoArgsConstructor
-public class BoardDTO {
+public class ListResponseDTO <E>{
 
-    private Integer bno;
-    private String content;
-    private String title;
+    private List<E> dtoList;
+    private int total;
 
 }

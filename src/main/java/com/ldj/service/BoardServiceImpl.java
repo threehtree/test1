@@ -2,6 +2,8 @@ package com.ldj.service;
 
 import com.ldj.domain.Board;
 import com.ldj.dto.BoardDTO;
+import com.ldj.dto.ListDTO;
+import com.ldj.dto.ListResponseDTO;
 import com.ldj.mapper.BoardMapper;
 import lombok.RequiredArgsConstructor;
 import lombok.extern.log4j.Log4j2;
@@ -10,6 +12,7 @@ import org.springframework.stereotype.Repository;
 import org.springframework.stereotype.Service;
 
 import java.util.List;
+import java.util.stream.Collectors;
 
 //@Service
 @Repository
@@ -25,8 +28,14 @@ public class BoardServiceImpl implements BoardService {
 
         return boardMapper.insert(board) == 1;
     }
-    public List<Board>selectList(){
-        return boardMapper.selectList(1,10);
+    public ListResponseDTO<BoardDTO> selectList(ListDTO listDTO){
+        List<Board> boards = boardMapper.selectList(listDTO);
+        List<BoardDTO> dtoList = boards.stream().map(board -> modelMapper.map(board, BoardDTO.class))
+                .collect(Collectors.toList());
+        return ListResponseDTO.<BoardDTO>builder()
+                .dtoList(dtoList)
+                .total(boardMapper.getTotal())
+                .build();
         //list DTO , 페이지...
     }
     public BoardDTO selectOne(Integer bno){
