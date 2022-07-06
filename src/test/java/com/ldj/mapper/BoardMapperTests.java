@@ -22,13 +22,16 @@ public class BoardMapperTests {
 
     @Test
     public void testInsert(){
+
         Board board = Board.builder()
                 .title("제목")
                 .content("내용")
 
                 .build();
+        for (int i = 0; i < 50; i++) {
+            boardMapper.insert(board);
+        }
 
-        boardMapper.insert(board);
         log.info("Bno: "+board);
     }
 //    @Test

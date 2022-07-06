@@ -1,10 +1,7 @@
 package com.ldj.controller;
 
 import com.ldj.domain.Board;
-import com.ldj.dto.BoardDTO;
-import com.ldj.dto.ListDTO;
-import com.ldj.dto.ListResponseDTO;
-import com.ldj.dto.Response;
+import com.ldj.dto.*;
 import com.ldj.service.BoardService;
 import com.ldj.service.BoardServiceImpl;
 import lombok.RequiredArgsConstructor;
@@ -75,6 +72,13 @@ public class BoardController {
         HttpEntity<Response> responseHttpEntity = new HttpEntity<>(new Response(result));
         log.info(responseHttpEntity);
         return responseHttpEntity;
+    }
+
+    @GetMapping("/pageNation")
+    public String pageNation(PageMaker pageMaker){
+
+
+        return null;
     }
 
 
