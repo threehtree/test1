@@ -37,8 +37,9 @@ public class BoardController {
     public void list() {
 
     }
-    @GetMapping("/getBoardList")
-    public HttpEntity<ListResponseDTO<BoardDTO>> listGet(Model model, ListDTO listDTO) {
+    @GetMapping("/getBoardList/{page}")
+    public HttpEntity<ListResponseDTO<BoardDTO>> listGet(@PathVariable("page") Integer page, Model model, ListDTO listDTO) {
+        listDTO.setPage(page);
         ListResponseDTO<BoardDTO> boards = boardService.selectList(listDTO);
         HttpEntity<ListResponseDTO<BoardDTO>> responseHttpEntity = new HttpEntity<>(boards);
         log.info("!@");
