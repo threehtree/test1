@@ -37,16 +37,20 @@ public class BoardController {
     public void list() {
 
     }
-    @GetMapping("/getBoardList/{page}")
-    public HttpEntity<ListResponseDTO<BoardDTO>> listGet(@PathVariable("page") Integer page, Model model, ListDTO listDTO) {
-        listDTO.setPage(page);
+    @GetMapping("/getBoardList")
+    public HttpEntity<ListResponseDTO<BoardDTO>> listGet(Model model, ListDTO listDTO) {
+
         ListResponseDTO<BoardDTO> boards = boardService.selectList(listDTO);
         HttpEntity<ListResponseDTO<BoardDTO>> responseHttpEntity = new HttpEntity<>(boards);
         log.info("!@");
         log.info(responseHttpEntity);
         log.info("!@");
+        log.info(listDTO);
         return responseHttpEntity;
     }
+
+
+
     @DeleteMapping("/delete/{bno}")
     public HttpEntity<Response> delete(@PathVariable("bno") Integer bno){
         boolean result = boardService.delete(bno);

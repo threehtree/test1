@@ -63,7 +63,16 @@
 
 
 
-
+                        <div class="searchDiv">
+                            <select class="type">
+                                <option value="">---</option>
+                                <option value="t">제목</option>
+                                <option value="tc">제목+내용</option>
+                                <option value="tcw">제목+내용+작성자</option>
+                            </select>
+                            <input type="text" name="keyword" >
+                            <button class="searchBtn">검색하기</button>
+                        </div>
 
 
 
@@ -84,6 +93,7 @@
                                     </a>
                                 </li>
                             </ul>
+
 
 
                     </div>
@@ -134,6 +144,9 @@
 <%--<button type="button" onclick="addBoard()">등록</button>--%>
 
 <%--<button onclick="pageNation()">페이지</button>--%>
+
+
+
 <%@ include file="/WEB-INF/includes/listfooter.jsp" %>
 
 
@@ -146,7 +159,8 @@
 
     window.onload = listBoard
 
-
+    let type = ''
+    let keyword =''
     let total = ''
     let page = '1'
 
@@ -160,15 +174,14 @@
         let test = '';
         console.log("page :"+page)
         axios({
-            url: `http://localhost:8080/board/getBoardList/\${page}`,
-            method: 'get'
-            // params:{page:page}
+            url: `http://localhost:8080/board/getBoardList`,
+            method: 'get',
+            params:{page:page, keyword:keyword, type:type}
         }).then(function (respones){
             console.log(respones.data)
             console.log(respones.data.dtoList)
             total =respones.data.total
             console.log("total :"+total)
-
                 respones.data.dtoList.forEach( (ele) =>{
                 // document.querySelector(".jo").innerHTML = JSON.stringify[idx]
                 test += `<tr><th><div data-bno = \${ele.bno} class="list-content">\${ele.bno}</div></th>
@@ -182,6 +195,7 @@
         }).catch(function (error){
             console.error(error);
         })
+
 
     }
 
@@ -262,10 +276,10 @@
         // window.history.pushState(null, null, `/board/list?page=\${page}`)
 
         axios({
-            url: `http://localhost:8080/board//getBoardList/\${page}`,
+            url: `http://localhost:8080/board/getBoardList`,
             //todo 이거 페이지를 넘겨줘볼려고 해도 ... axios에 못 넣는데 어카냐
-            method: 'get'
-            <%--params:{page:"${page}"}--%>
+            method: 'get',
+            params:{page:page}
         }).then((response)=>{
             console.log(response)
             listBoard()
@@ -273,6 +287,15 @@
 
     },false)
 
+    document.querySelector(".searchBtn").addEventListener("click",(e)=>{
+        type = document.querySelector('.searchDiv .type').value
+        keyword = document.querySelector(".searchDiv input[name='keyword']").value
+        console.log(type, keyword)
+
+        page = 1
+            listBoard()
+
+    },false)
 
 
 </script>

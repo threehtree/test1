@@ -34,7 +34,7 @@ public class BoardServiceImpl implements BoardService {
                 .collect(Collectors.toList());
         return ListResponseDTO.<BoardDTO>builder()
                 .dtoList(dtoList)
-                .total(boardMapper.getTotal())
+                .total(boardMapper.getTotal(listDTO))
                 .build();
         //list DTO , 페이지...
     }

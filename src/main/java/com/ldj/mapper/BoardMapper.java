@@ -10,7 +10,7 @@ public interface BoardMapper {
     Integer insert(Board board);
 
     List<Board> selectList(ListDTO listDTO);
-    Integer getTotal();
+    Integer getTotal(ListDTO listDTO);
     Board selectOne(Integer bno);
 
     Integer delete(Integer bno);
