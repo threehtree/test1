@@ -9,7 +9,7 @@
 </h1>
 <br/>
 <a href="hello-servlet">Hello Servlet</a>
-
+<%-- TODO 기본 페이지 설정하기 --%>
 <script ></script>
 </body>
 </html>

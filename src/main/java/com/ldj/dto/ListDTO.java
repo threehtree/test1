@@ -8,6 +8,8 @@ import java.beans.Encoder;
 import java.io.UnsupportedEncodingException;
 import java.net.URLEncoder;
 
+// TODO 사용하지 않으면서 잔뜩 만들어 놓은 코드 정리 필요
+// TODO 무슨 정보의 DTO인지 알 수 없음 -> DTO 자체가 객체 하나인데 앞에 List를 붙이면 뭐하는 객체인지 아예 의미가 불명확함.
 @ToString
 @Getter
 @Builder

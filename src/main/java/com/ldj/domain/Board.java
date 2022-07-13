@@ -4,6 +4,7 @@ import lombok.*;
 
 import java.time.LocalDateTime;
 
+// TODO BoardDTO랑 똑같이 생겼는데
 @AllArgsConstructor
 @NoArgsConstructor
 @ToString
