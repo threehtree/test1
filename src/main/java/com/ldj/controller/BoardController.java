@@ -1,9 +1,7 @@
 package com.ldj.controller;
 
-import com.ldj.domain.Board;
 import com.ldj.dto.*;
 import com.ldj.service.BoardService;
-import com.ldj.service.BoardServiceImpl;
 import lombok.RequiredArgsConstructor;
 import lombok.extern.log4j.Log4j2;
 import org.springframework.http.HttpEntity;
@@ -11,8 +9,8 @@ import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.*;
 
-import java.util.List;
 
+// TODO 화면을 보여주는 컨트롤러와 결과 데이터를 리턴할 REST API 구분이 없는 컨트롤러는 똥이다.
 @Controller
 @Log4j2
 @RequiredArgsConstructor
@@ -28,6 +26,7 @@ public class BoardController {
 
     @PostMapping("register")
     public HttpEntity<Response> register(@RequestBody BoardDTO boardDTO){
+        // TODO 서비스 코드에서 결과 데이터를 만들어서 리턴하기 (컨트롤러는 요청을 받고 응답을 전달하는 역할만)
         boolean result = boardService.insert(boardDTO);
         HttpEntity<Response> responseHttpEntity = new HttpEntity<>(new Response(result));
         return responseHttpEntity;
@@ -40,6 +39,7 @@ public class BoardController {
     @GetMapping("/getBoardList")
     public HttpEntity<ListResponseDTO<BoardDTO>> listGet(Model model, ListDTO listDTO) {
 
+        // TODO 서비스 코드에서 결과 데이터를 만들어서 리턴하기 (컨트롤러는 요청을 받고 응답을 전달하는 역할만)
         ListResponseDTO<BoardDTO> boards = boardService.selectList(listDTO);
         HttpEntity<ListResponseDTO<BoardDTO>> responseHttpEntity = new HttpEntity<>(boards);
         log.info("!@");

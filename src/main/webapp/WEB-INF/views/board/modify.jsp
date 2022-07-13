@@ -64,7 +64,8 @@
                                     </div>
                                     <div class="my-4">
                                         <div class="noBoardMoveBtn float-end">
-
+                                            <%-- TODO 업데이트 버튼 개발 안된듯 - 에러 발생 --%>
+                                                <%-- TODO 업데이트 후 화면 이동 필요함 --%>
                                             <button  onclick="updateBtn()" type="button"
                                                     class="no-link btn btn-primary">수정완료
                                             </button>
@@ -81,6 +82,7 @@
 
                 </div>
             </div>
+            <!-- TODO div 에러 발생, 주석 잘못 적어서인듯 -->
     </div>
     </main>
 

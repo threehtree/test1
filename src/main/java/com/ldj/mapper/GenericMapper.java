@@ -5,6 +5,7 @@ import org.apache.ibatis.annotations.Param;
 
 import java.util.List;
 
+// TODO 필요 없는 코드
 public interface GenericMapper<E,K> {
     void insert(E obj);
 
