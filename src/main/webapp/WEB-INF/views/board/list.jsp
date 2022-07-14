@@ -78,7 +78,7 @@
 
                             <ul class="pagination check_pagination">
                                 <li class="page-item">
-                                    <a class="page-link prev" href="${pageMaker.start -1}" aria-label="Previous">
+                                    <a class="page-link prev" style="" href="${pageMaker.start -1}" aria-label="Previous">
                                         <span aria-hidden="true">&laquo;</span>
                                     </a>
                                 </li>
@@ -88,8 +88,8 @@
                                </div>
 
                                 <li class="page-item">
-                                    <a class="page-link next" href="${pageMaker.end+1}" aria-label="Next">
-                                        <span aria-hidden="true">&raquo;</span>
+                                    <a class="page-link next" style="" href="${pageMaker.end+1}" aria-label="Next">
+                                        <span  aria-hidden="true">&raquo;</span>
                                     </a>
                                 </li>
                             </ul>
@@ -233,6 +233,7 @@
             let tempEnd = Math.ceil(page / 10.0) * 10
 
             start = tempEnd - 9;
+            prev = start != 1;
 
 
             //이거 boolean 처리를 위한 값일뿐임
@@ -249,13 +250,26 @@
         console.log(start+"==="+end+"==="+prev+"==="+next+"==="+tempEnd+"==="+total)
 
             let str= ''
-        for (let i = start; i < end; i++) {
+        for (let i = start; i < end+1; i++) {
             // console.log(i)
             str += `<li class="page-item page-item page-now"><a class="page-link" href="\${i}">\${i}</a></li>`
         }
         document.querySelector(".list-page").innerHTML =str
-        if(prev) {document.querySelector(".prev").href= start -1}
-        if(next) {document.querySelector(".next").href= end +1}
+        if(prev) {
+            document.querySelector(".prev").href= start -1
+            document.querySelector(".prev").style= ""
+        } else {
+            document.querySelector(".prev").style= "display: none"
+
+        }
+
+        if(next) {
+            document.querySelector(".next").href= end +1
+            document.querySelector(".next").style= ""
+        }else {
+            document.querySelector(".next").style= "display: none"
+
+        }
         // document.querySelector(".list-page").insertAdjacentHTML("beforebegin", str)
         // }
     }
