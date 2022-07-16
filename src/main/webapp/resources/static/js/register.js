@@ -28,4 +28,5 @@ function registerBoard() {
 
 function cancelRegister() {
     console.log("cancelRegister");
+    window.location.href = `/board/list`
 }

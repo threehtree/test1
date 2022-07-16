@@ -62,6 +62,10 @@
 
 
                                     </div>
+
+
+
+
                                     <div class="my-4">
                                         <div class="noBoardMoveBtn float-end">
 
