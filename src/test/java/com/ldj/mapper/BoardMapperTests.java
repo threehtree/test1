@@ -2,16 +2,13 @@ package com.ldj.mapper;
 
 
 import com.ldj.domain.Board;
-import com.ldj.dto.ListDTO;
+import com.ldj.dto.ChangePageDTO;
 import lombok.extern.log4j.Log4j2;
 import org.junit.jupiter.api.Test;
 import org.junit.jupiter.api.extension.ExtendWith;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.test.context.ContextConfiguration;
-import org.springframework.test.context.TestPropertySource;
 import org.springframework.test.context.junit.jupiter.SpringExtension;
-
-import java.util.List;
 
 @Log4j2
 @ExtendWith(SpringExtension.class)
@@ -44,23 +41,23 @@ public class BoardMapperTests {
     @Test
     public void testSelectList(){
 
-        ListDTO listDTO = ListDTO.builder()
+        ChangePageDTO changePageDTO = ChangePageDTO.builder()
                 .page(1)
                 .size(10)
                 .keyword("asd")
                 .type("t")
                 .build();
 
-        boardMapper.selectList(listDTO);
+        boardMapper.selectList(changePageDTO);
     }
     @Test
     public void testTotal(){
-        ListDTO listDTO = ListDTO.builder()
+        ChangePageDTO changePageDTO = ChangePageDTO.builder()
                 .page(1)
                 .size(10)
                 .keyword("asd")
                 .type("t")
                 .build();
-        boardMapper.getTotal(listDTO);
+        boardMapper.getTotal(changePageDTO);
     }
 }

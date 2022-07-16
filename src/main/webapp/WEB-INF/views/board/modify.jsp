@@ -44,13 +44,13 @@
                                         <%--                                        </div>--%>
                                         <div class="input-group mb-3">
                                             <span class="input-group-text">제목</span>
-                                            <input type="text" class="form-control"
+                                            <input type="text" name="title" class="form-control"
                                                    value="${dtoOne.title}">
                                         </div>
 
                                         <div class="input-group mb-3">
                                             <span class="input-group-text">내용</span>
-                                            <textarea class="form-control col-sm-5" rows="5"
+                                            <textarea name="content" class="form-control col-sm-5" rows="5"
                                                       >${dtoOne.content}</textarea>
                                         </div>
 
@@ -100,6 +100,28 @@
 
 <script>
     const bno = ${dtoOne.bno}
+
+        function updateBtn(){
+            const title = document.querySelector(".input-group input[name='title']").value
+            const content = document.querySelector(".input-group textarea[name='content']").value
+            axios({
+                url: 'http://localhost:8080/board/putBoard/${bno}',
+                method: 'put',
+                data:{
+                    title:title,
+                    content:content
+                }
+            }).then(function (request){
+                // console.log(request)
+
+                if(request.status){
+                    alert(bno + "글이 수정 되었습니다")
+                    window.location.href = `/board/read/${bno}`
+                }else (function (error){
+                    console.error(error)
+                })
+            })
+        }
 
         function delBtn(){
             //경고창을 띄울러면 modal을 써야하는데 일단 alert

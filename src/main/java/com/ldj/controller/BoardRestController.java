@@ -1,8 +1,8 @@
 package com.ldj.controller;
 
 import com.ldj.dto.BoardDTO;
-import com.ldj.dto.ListDTO;
-import com.ldj.dto.ListResponseDTO;
+import com.ldj.dto.ChangePageDTO;
+import com.ldj.dto.GenericDTO_Total_DTO;
 import com.ldj.dto.Response;
 import com.ldj.service.BoardService;
 import lombok.RequiredArgsConstructor;
@@ -21,29 +21,20 @@ public class BoardRestController {
 
     @PostMapping("register")
     public HttpEntity<Response> register(@RequestBody BoardDTO boardDTO){
-        boolean result = boardService.insert(boardDTO);
-        HttpEntity<Response> responseHttpEntity = new HttpEntity<>(new Response(result));
-        return responseHttpEntity;
+        return boardService.insert(boardDTO);
     }
+    //todo 1 new HttpEntity<>(new Response(result)); //여기서 false면 어떻게 되는거지??
 
     @GetMapping("/getBoardList")
-    public HttpEntity<ListResponseDTO<BoardDTO>> listGet(Model model, ListDTO listDTO) {
-
-        ListResponseDTO<BoardDTO> boards = boardService.selectList(listDTO);
-        HttpEntity<ListResponseDTO<BoardDTO>> responseHttpEntity = new HttpEntity<>(boards);
-        log.info("!@");
-        log.info(responseHttpEntity);
-        log.info("!@");
-        log.info(listDTO);
+    public HttpEntity<GenericDTO_Total_DTO<BoardDTO>> listGet(Model model, ChangePageDTO changePageDTO) {
+        HttpEntity<GenericDTO_Total_DTO<BoardDTO>> responseHttpEntity = boardService.selectList(changePageDTO);
         return responseHttpEntity;
     }
 
     @PutMapping("/putBoard/{bno}")
     public HttpEntity<Response> update(@PathVariable("bno") Integer bno, @RequestBody BoardDTO boardDTO){
         boardDTO.setBno(bno);
-        boolean result = boardService.update(boardDTO);
-        HttpEntity<Response> responseHttpEntity = new HttpEntity<>(new Response(result));
-        log.info(responseHttpEntity);
+        HttpEntity<Response> responseHttpEntity = boardService.update(boardDTO);
         return responseHttpEntity;
     }
 

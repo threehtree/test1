@@ -11,13 +11,13 @@
             <if test="keyword != null">
                 <foreach collection="types" item="item" separator=" OR " open="(" close=")">
                     <if test='item == "t"'>
-                        title like concat('%', #{keyword}, '%')
+                        title like concat(#{keyword}, '%')
                     </if>
                     <if test='item == "c"'>
-                        content like concat('%', #{keyword}, '%')
+                        content like concat(#{keyword}, '%')
                     </if>
                     <if test='item == "w"'>
-                        writer like concat('%', #{keyword}, '%')
+                        writer like concat(#{keyword}, '%')
                     </if>
                 </foreach>
             </if>

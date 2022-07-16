@@ -11,7 +11,7 @@ import java.util.List;
 @Builder
 @AllArgsConstructor
 @NoArgsConstructor
-public class ListResponseDTO <E>{
+public class GenericDTO_Total_DTO<E>{
 
     private List<E> dtoList;
     private int total;
