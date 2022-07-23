@@ -1,18 +1,17 @@
 package com.ldj.dto;
 
 import lombok.*;
-import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.util.UriComponentsBuilder;
 
-import java.beans.Encoder;
 import java.io.UnsupportedEncodingException;
 import java.net.URLEncoder;
+
 
 @ToString
 @Getter
 @Builder
 @AllArgsConstructor
-public class ListDTO {
+public class ChangePageDTO {
 
     private int page;
 
@@ -25,7 +24,7 @@ public class ListDTO {
 
     private String keyword;
 
-    public ListDTO(){
+    public ChangePageDTO(){
         this.page = 1;
         this.size = 10;
     }

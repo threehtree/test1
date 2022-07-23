@@ -1,21 +1,20 @@
 package com.ldj.service;
 
-import com.ldj.domain.Board;
 import com.ldj.dto.BoardDTO;
-import com.ldj.dto.ListDTO;
-import com.ldj.dto.ListResponseDTO;
-
-import java.util.List;
+import com.ldj.dto.ChangePageDTO;
+import com.ldj.dto.GenericDTO_Total_DTO;
+import com.ldj.dto.Response;
+import org.springframework.http.HttpEntity;
 
 public interface BoardService {
 
-    boolean insert(BoardDTO boardDTO);
+    HttpEntity<Response> insert(BoardDTO boardDTO);
 
-    ListResponseDTO<BoardDTO> selectList(ListDTO listDTO);
+    HttpEntity<GenericDTO_Total_DTO<BoardDTO>> selectList(ChangePageDTO changePageDTO);
     BoardDTO selectOne(Integer bno);
 
     boolean delete(Integer bno);
-    boolean update(BoardDTO boardDTO);
+    HttpEntity<Response> update(BoardDTO boardDTO);
 
 
 }

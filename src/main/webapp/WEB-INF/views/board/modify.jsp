@@ -21,11 +21,6 @@
                 <%--                <button class="moreBtn">더보기</button>--%>
                 <div class="card mb-4">
                     <div class="card-body">
-                        <%--                            <c:if test="${qaDTO.mainImage != null}">--%>
-                        <%--                                <img src="${qaDTO.mainImage}">--%>
-                        <%--                            </c:if>--%>
-                        <%--    todo check 이것도 대표이미지 이용인데 나에게는 필요없을 것 같다 --%>
-
 
                         <%--====================--%>
                         <div class="row mt-3">
@@ -37,34 +32,27 @@
                                     </div>
                                     <div class="card-body">
 
-                                        <%--                                        <div class="input-group mb-3">--%>
-                                        <%--                                            <span class="input-group-text">번호</span>--%>
-                                        <%--                                            <input type="text" class="form-control" name="noNo" value="${noDTO.noNo}"--%>
-                                        <%--                                                   readonly>--%>
-                                        <%--                                        </div>--%>
                                         <div class="input-group mb-3">
                                             <span class="input-group-text">제목</span>
-                                            <input type="text" class="form-control"
+                                            <input type="text" name="title" class="form-control"
                                                    value="${dtoOne.title}">
                                         </div>
 
                                         <div class="input-group mb-3">
                                             <span class="input-group-text">내용</span>
-                                            <textarea class="form-control col-sm-5" rows="5"
+                                            <textarea name="content" class="form-control col-sm-5" rows="5"
                                                       >${dtoOne.content}</textarea>
                                         </div>
 
-
-                                        <%--    =============================================================================================================--%>
-
-                                        <%--    =============================================================================================================--%>
-
-
-
                                     </div>
+
+
+
+
                                     <div class="my-4">
                                         <div class="noBoardMoveBtn float-end">
-
+                                            <%-- TODO 업데이트 버튼 개발 안된듯 - 에러 발생 --%>
+                                                <%-- TODO 업데이트 후 화면 이동 필요함 --%>
                                             <button  onclick="updateBtn()" type="button"
                                                     class="no-link btn btn-primary">수정완료
                                             </button>
@@ -81,6 +69,8 @@
 
                 </div>
             </div>
+
+<%--            --%>
     </div>
     </main>
 
@@ -100,6 +90,28 @@
 
 <script>
     const bno = ${dtoOne.bno}
+
+        function updateBtn(){
+            const title = document.querySelector(".input-group input[name='title']").value
+            const content = document.querySelector(".input-group textarea[name='content']").value
+            axios({
+                url: 'http://localhost:8080/board/putBoard/${bno}',
+                method: 'put',
+                data:{
+                    title:title,
+                    content:content
+                }
+            }).then(function (request){
+                // console.log(request)
+
+                if(request.status){
+                    alert(bno + "글이 수정 되었습니다")
+                    window.location.href = `/board/read/${bno}`
+                }else (function (error){
+                    console.error(error)
+                })
+            })
+        }
 
         function delBtn(){
             //경고창을 띄울러면 modal을 써야하는데 일단 alert
@@ -129,4 +141,3 @@
     }
 </script>
 
-//조회하기 <<< 부트 넣은것 

@@ -18,12 +18,10 @@
                         max-width: 80vw;
                     }
                 </style>
-                <%--                <button class="moreBtn">더보기</button>--%>
+
                 <div class="card mb-4">
                     <div class="card-body">
-                        <%--                            <c:if test="${qaDTO.mainImage != null}">--%>
-                        <%--                                <img src="${qaDTO.mainImage}">--%>
-                        <%--                            </c:if>--%>
+
                         <%--    todo check 이것도 대표이미지 이용인데 나에게는 필요없을 것 같다 --%>
 
 
@@ -37,11 +35,6 @@
                                     </div>
                                     <div class="card-body">
 
-                                        <%--                                        <div class="input-group mb-3">--%>
-                                        <%--                                            <span class="input-group-text">번호</span>--%>
-                                        <%--                                            <input type="text" class="form-control" name="noNo" value="${noDTO.noNo}"--%>
-                                        <%--                                                   readonly>--%>
-                                        <%--                                        </div>--%>
                                         <div class="input-group mb-3">
                                             <span class="input-group-text">제목</span>
                                             <input type="text" class="form-control"
@@ -62,14 +55,38 @@
 
 
                                     </div>
+
+
+                                    <!-- Modal -->
+                                    <div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+                                        <div class="modal-dialog">
+                                            <div class="modal-content">
+                                                <div class="modal-header">
+                                                    <h5 class="modal-title" id="exampleModalLabel">확인</h5>
+                                                    <button type="button" class="btn-close" data-bs-dismiss="modal"
+                                                            aria-label="Close"></button>
+                                                </div>
+                                                <div class="modal-body">
+                                                    ${dtoOne.bno}번 글을 정말 삭제하시겟습니까?
+                                                </div>
+                                                <div class="modal-footer">
+                                                    <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">취소하기</button>
+                                                    <button onclick="delBtn()" type="button" class="removeBtn btn btn-danger">삭제하기</button>
+
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+
                                     <div class="my-4">
                                         <div class="noBoardMoveBtn float-end">
 
                                                     <button onclick="modifyBtn()" type="button"
                                                             class="no-link btn btn-primary">수정하기
                                                     </button>
-                                                    <button onclick="delBtn()" type="button"
-                                                            class="removeBtn btn btn-danger">삭제하기</button>
+
+                                            <button  type="button"
+                                                    class="btn btn-danger" data-bs-toggle="modal" data-bs-target="#exampleModal">삭제하기</button>
 
                                         </div>
                                     </div>
@@ -83,6 +100,8 @@
 
                 </div>
             </div>
+<%--   TODO  이 주석을 지우면 html 에러남       --%>
+            <!-- TODO html에서 주석은 이걸로 작성 -->
     </div>
     </main>
 

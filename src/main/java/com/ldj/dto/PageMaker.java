@@ -4,6 +4,8 @@ import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
 
+//todo 이것도 js 에 결국 다쓰고있어서 이 코드 부분이 필요없음
+
 @Data
 @AllArgsConstructor
 @NoArgsConstructor
