@@ -9,8 +9,7 @@
             <div class="container-fluid px-4">
                 <h1 class="mt-4">Board</h1>
                 <ol class="breadcrumb mb-4">
-                    <%--                    <li class="breadcrumb-item"><a href="index.html">Dashboard</a></li>--%>
-                    <%--                    <li class="breadcrumb-item active">Tables</li>--%>
+
                 </ol>
 
                 <div class="card mb-4">
@@ -28,8 +27,7 @@
                                         <th><div class="dataTable-sorter">번호</div></th>
                                         <th><div class="dataTable-sorter">제목</div></th>
                                         <th><div class="dataTable-sorter">내용</div></th>
-                                        <%--                    <th><div class="dataTable-sorter">댓글수</div></th>--%>
-                                        <%--                    <th><div class="dataTable-sorter">답변유무</div></th>--%>
+
                                     </tr>
                                     </thead>
 
@@ -37,52 +35,7 @@
 
                                     </tbody>
 
-<%--                                    <tbody class="qaBoardList">--%>
-<%--                                    <c:forEach items="${qaDTO}" var="qaDTO">--%>
-<%--                                        <tr>--%>
 
-
-<%--                                            <td data-qaNo = "/qa/read/${qaDTO.qaNo}" class="qa-link">${qaDTO.qaNo}</td>--%>
-<%--                                            <td data-qaNo = "/qa/read/${qaDTO.qaNo}" class="qa-link">${qaDTO.qaTitle} <b data-qaNo = "/qa/read/${qaDTO.qaNo}" class="qa-link">[${qaDTO.replyCount}]</b></td>--%>
-<%--                                            <td data-qaNo = "/qa/read/${qaDTO.qaNo}" class="qa-link">${qaDTO.qaWriter}</td>--%>
-<%--                                            <td data-qaNo = "/qa/read/${qaDTO.qaNo}" class="qa-link">${qaDTO.regDate}</td>--%>
-<%--                                                &lt;%&ndash;                        <td data-qaNo = "/qa/read/${qaDTO.qaNo}" class="qa-link">${qaDTO.replyCount}</td>&ndash;%&gt;--%>
-<%--                                                &lt;%&ndash;                        <td data-qaNo = "/qa/read/${qaDTO.qaNo}" class="qa-link">${qaDTO.}</td>&ndash;%&gt;--%>
-
-<%--                                        </tr>--%>
-<%--                                    </c:forEach>--%>
-<%--                                    </tbody>--%>
-
-                                </table>
-                            </div>
-                        </div>
-
-                        <button type="button" onclick="addBoard()"
-                                class="btn btn-primary btn-sm">작성하기
-                        </button>
-
-
-
-                        <div class="searchDiv">
-                            <select class="type">
-                                <option value="">---</option>
-                                <option value="t">제목</option>
-                                <option value="tc">제목+내용</option>
-                                <option value="tcw">제목+내용+작성자</option>
-                            </select>
-                            <input type="text" name="keyword" >
-                            <button class="searchBtn">검색하기</button>
-                        </div>
-
-
-
-                            <ul class="pagination check_pagination">
-                                <li class="page-item">
-                                    <a class="page-link prev" style="" href="${pageMaker.start -1}" aria-label="Previous">
-                                        <span aria-hidden="true">&laquo;</span>
-                                    </a>
-                                </li>
-<%--                                jstl안쓰고 그냥 반복문 쓰면 되지 --%>
                                <div class ="list-page pagination">
 
                                </div>
@@ -125,9 +78,7 @@
             <th><div>title</div></th>
             <th><div>content</div></th>
         </thead>
-<%--        <tbody class="readOneBody">--%>
 
-<%--        </tbody>--%>
         <tfoot>
 
         </tfoot>
@@ -136,15 +87,8 @@
 
 <div class="check">
 
-<%--<c:forEach items="" var="list">--%>
-<%--    <span>${list.contnet}</span>--%>
-<%--    <span>${list.title}</span>--%>
-<%--</c:forEach>--%>
+
 </div>
-<%--<button type="button" onclick="addBoard()">등록</button>--%>
-
-<%--<button onclick="pageNation()">페이지</button>--%>
-
 
 
 <%@ include file="/WEB-INF/includes/listfooter.jsp" %>

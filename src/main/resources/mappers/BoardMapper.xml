@@ -6,7 +6,7 @@
 <mapper namespace="com.ldj.mapper.BoardMapper">
 
     <!-- TODO 어디서부터 시작하는지 모르겠는 쿼리 -->
-    <!--  TODO 검색할 때 키워드 앞뒤로 % 붙이면 성능이슈 심각하게 발생할 가능성 있음 (검색 속도 저하)  -->
+
     <sql id="search">
         <where>
             <if test="keyword != null">

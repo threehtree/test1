@@ -18,7 +18,7 @@
                         max-width: 80vw;
                     }
                 </style>
-                <%--                <button class="moreBtn">더보기</button>--%>
+
                 <div class="card mb-4">
                     <div class="card-body">
 

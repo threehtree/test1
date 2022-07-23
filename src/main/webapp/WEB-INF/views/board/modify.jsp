@@ -21,11 +21,6 @@
                 <%--                <button class="moreBtn">더보기</button>--%>
                 <div class="card mb-4">
                     <div class="card-body">
-                        <%--                            <c:if test="${qaDTO.mainImage != null}">--%>
-                        <%--                                <img src="${qaDTO.mainImage}">--%>
-                        <%--                            </c:if>--%>
-                        <%--    todo check 이것도 대표이미지 이용인데 나에게는 필요없을 것 같다 --%>
-
 
                         <%--====================--%>
                         <div class="row mt-3">
@@ -37,11 +32,6 @@
                                     </div>
                                     <div class="card-body">
 
-                                        <%--                                        <div class="input-group mb-3">--%>
-                                        <%--                                            <span class="input-group-text">번호</span>--%>
-                                        <%--                                            <input type="text" class="form-control" name="noNo" value="${noDTO.noNo}"--%>
-                                        <%--                                                   readonly>--%>
-                                        <%--                                        </div>--%>
                                         <div class="input-group mb-3">
                                             <span class="input-group-text">제목</span>
                                             <input type="text" name="title" class="form-control"
@@ -53,13 +43,6 @@
                                             <textarea name="content" class="form-control col-sm-5" rows="5"
                                                       >${dtoOne.content}</textarea>
                                         </div>
-
-
-                                        <%--    =============================================================================================================--%>
-
-                                        <%--    =============================================================================================================--%>
-
-
 
                                     </div>
 
@@ -86,7 +69,8 @@
 
                 </div>
             </div>
-            <!-- TODO div 에러 발생, 주석 잘못 적어서인듯 -->
+
+<%--            --%>
     </div>
     </main>
 
@@ -157,4 +141,3 @@
     }
 </script>
 
-//조회하기 <<< 부트 넣은것 
