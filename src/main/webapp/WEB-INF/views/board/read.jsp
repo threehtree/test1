@@ -100,6 +100,8 @@
 
                 </div>
             </div>
+<%--   TODO  이 주석을 지우면 html 에러남       --%>
+            <!-- TODO html에서 주석은 이걸로 작성 -->
     </div>
     </main>
 

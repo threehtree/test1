@@ -15,7 +15,7 @@ import org.springframework.stereotype.Repository;
 import java.util.List;
 import java.util.stream.Collectors;
 
-//@Service
+// TODO 컨트롤러에서 지저분하게 작성한 코드는 여기서 구현하기
 @Repository
 @RequiredArgsConstructor
 @Log4j2

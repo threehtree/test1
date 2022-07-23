@@ -19,6 +19,7 @@
 
     function delBtn(){
         //경고창을 띄울러면 modal을 써야하는데 일단 alert
+      // TODO 취소할 수가 없는 삭제버튼
         alert(bno + "글이 삭제 됩니다 ")
         axios({
             url: 'http://localhost:8080/board/delete/${bno}',
