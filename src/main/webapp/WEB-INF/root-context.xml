@@ -5,7 +5,6 @@
        xmlns:mybatis-Spring="http://mybatis.org/schema/mybatis-spring"
        xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd http://www.springframework.org/schema/context https://www.springframework.org/schema/context/spring-context.xsd http://mybatis.org/schema/mybatis-spring http://mybatis.org/schema/mybatis-spring.xsd">
 
-    <context:component-scan base-package="com.ldj.sample"/>
     <context:component-scan base-package="com.ldj.service"/>
     <context:component-scan base-package="com.ldj.config"/>
 

@@ -21,9 +21,7 @@
                 <%--                <button class="moreBtn">더보기</button>--%>
                 <div class="card mb-4">
                     <div class="card-body">
-                        <%--                            <c:if test="${qaDTO.mainImage != null}">--%>
-                        <%--                                <img src="${qaDTO.mainImage}">--%>
-                        <%--                            </c:if>--%>
+
                         <%--    todo check 이것도 대표이미지 이용인데 나에게는 필요없을 것 같다 --%>
 
 
@@ -37,11 +35,6 @@
                                     </div>
                                     <div class="card-body">
 
-                                        <%--                                        <div class="input-group mb-3">--%>
-                                        <%--                                            <span class="input-group-text">번호</span>--%>
-                                        <%--                                            <input type="text" class="form-control" name="noNo" value="${noDTO.noNo}"--%>
-                                        <%--                                                   readonly>--%>
-                                        <%--                                        </div>--%>
                                         <div class="input-group mb-3">
                                             <span class="input-group-text">제목</span>
                                             <input type="text" class="form-control"
